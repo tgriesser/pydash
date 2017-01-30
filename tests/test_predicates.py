@@ -401,7 +401,8 @@ def test_is_monotone(case, expected):
     (123456789123456789123456789, False),
     (123.45, False),
     (decimal.Decimal(1), False),
-    ('1', True)
+    ('1', True),
+    (float('nan'), True)
 ])
 def test_is_nan(case, expected):
     assert _.is_nan(case) == expected

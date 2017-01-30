@@ -12,6 +12,7 @@ import json
 import operator
 import re
 from types import BuiltinFunctionType
+from math import isnan
 
 import pydash as pyd
 from .helpers import iterator
@@ -955,10 +956,12 @@ def is_nan(value):
         False
         >>> is_nan(1.0)
         False
+        >>> is_nan(float('nan'))
+        True
 
     .. versionadded:: 1.0.0
     """
-    return not is_number(value)
+    return not is_number(value) or isnan(value)
 
 
 def is_negative(value):
